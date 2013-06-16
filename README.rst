@@ -1,4 +1,4 @@
-Diigo_to_Evernote
+Diigo to Evernote
 =================
 
 This script takes a bookmark file imported from Diigo and uploads the
@@ -18,14 +18,14 @@ Usage
 -----
 
 Diigo_to_evernote requires an Evernote developer token for operation. Get the
-Evernote API key at __ http://dev.evernote.com/documentation/cloud/ and then
-the token at __ http://dev.evernote.com/start/core/authentication.php#devtoken.
+Evernote API key at http://dev.evernote.com/documentation/cloud/ and then
+the token at http://dev.evernote.com/start/core/authentication.php#devtoken.
 
 Copy diigo_to_evernote.conf.sample to diigo_to_evernote.conf and insert
 the token. The other fields are currently not used.
 
 Note that by default the script uses the sandbox servers only. To use
-the production servers, change the sandbox parameter to "False" at
+the production servers, change the sandbox parameter to ``False`` at
 ``diigo_to_evernote.py`` line 44.
 
 Export your Diigo library in Delicious format. Then, issue the following
