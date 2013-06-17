@@ -43,7 +43,7 @@ class EvernoteBookmarks(object):
 
         self.client = EvernoteClient(
             token=token,
-            sandbox=True)
+            sandbox=False)
 
         self.user_store = self.client.get_user_store()
 
@@ -71,7 +71,7 @@ class EvernoteBookmarks(object):
         date_created = bookmark['add_date']*1000
 
         tag_string = ', '.join(bookmark['tags'])
-        if tag_string == 'no_tag':
+        if 'no_tag' in tag_string:
             tag_string = ""
 
         content = NOTE_TEMPLATE.format(
@@ -88,6 +88,7 @@ class EvernoteBookmarks(object):
         note.content = content.encode('utf-8')
         note.tagNames = [bm.encode('utf-8') for bm in bookmark['tags']]
         note.created = date_created
+        note.updated = date_created
         note.notebookGuid = notebook_guid
 
         self.note_store.createNote(note)
